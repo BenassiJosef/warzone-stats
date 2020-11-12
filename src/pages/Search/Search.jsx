@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { connect } from "react-redux";
+import React, { useState, useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "./Search.css";
-import { withRouter } from "react-router-dom";
 import Input from "../../elements/Input/Input";
 import Button from "../../elements/Button/Button";
 import searchPlayer from "../../redux/actions/searchActionCreator";
 
-export const Search = ({ submitPlayerRequest, history, searchResp }) => {
-  const [credentials, setCredentials] = useState({
-    playerID: "",
-  });
+export const Search = ({ submitPlayerRequest, history }) => {
+  const searchResp = useSelector(
+    ({ searchReducer }) => searchReducer.searchResponse ?? ""
+  );
+  const dispatch = useDispatch();
+  const [playerID, setPlayerId] = useState("");
+
+  const search = useCallback(() => {
+    searchPlayer(dispatch, {
+      playerID,
+    });
+  }, [dispatch, playerID]);
 
   useEffect(() => {
     console.log(searchResp);
@@ -21,42 +28,13 @@ export const Search = ({ submitPlayerRequest, history, searchResp }) => {
         id="player"
         label="Activision Player ID Examlpe: (josefbenassi%237491959)"
         type="text"
-        onChange={(e) => {
-          setCredentials({ ...credentials, playerID: e.target.value });
-        }}
+        onChange={({ target }) => setPlayerId(target.value)}
       />
-      <Button
-        intent="primary"
-        disabled={false}
-        onClick={() => {
-          submitPlayerRequest(
-            {
-              playerID: credentials.playerID,
-            },
-            history
-          );
-        }}
-      >
+      <Button intent="primary" disabled={false} onClick={search}>
         Search
       </Button>
     </>
   );
 };
 
-export const mapStateToProps = (state) => {
-  return {
-    searchResp:
-      state.searchReducer.searchResponse !== undefined
-        ? state.searchReducer.searchResponse
-        : "",
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    submitPlayerRequest: (payload, history) =>
-      searchPlayer(dispatch, payload, history),
-  };
-};
-
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Search));
+export default Search;
