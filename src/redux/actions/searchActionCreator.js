@@ -27,16 +27,6 @@ export default function searchPlayer(dispatch, payload, history) {
     )
     .catch((error) => {
       if (error.response) {
-        // The request was made and the server responded with a status code
-        // that falls out of the range of 2xx
-        // error object has key: status
-        // response object has keys: data , status , headers
-        // history.push({
-        //   pathname: "/login-fail",
-        //   state: {
-        //     error: error.response.data.message,
-        //   },
-        // });
         return dispatch({
           type: SEARCH_PLAYER_ERROR,
           payload: { status: error.response.status, ...error.response.data },
