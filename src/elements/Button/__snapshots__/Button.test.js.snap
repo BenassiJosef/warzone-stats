@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button component renders as primary by default 1`] = `
+.c0 {
+  background: #0036a8;
+  color: white;
+  border-color: white;
+  padding: 9px 20px 8px 20px;
+  border: inherit;
+  text-align: inherit;
+  opacity: 1;
+  min-width: 156px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  border-radius: 3px;
+  margin-right: 16px;
+}
+
+.c0:focus {
+  outline: 0;
+}
+
+.c0:hover {
+  cursor: pointer;
+}
+
+<button
+  className="c0"
+  data-test="undefined-button"
+/>
+`;

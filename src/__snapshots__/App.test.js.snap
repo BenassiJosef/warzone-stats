@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot renders 1`] = `
+<div
+  className="App"
+>
+  <div
+    className="sc-dlfnbm HlyKS"
+  >
+    <div
+      style={
+        Object {
+          "marginBottom": "8px",
+        }
+      }
+    >
+      <label
+        className="sc-gsTCUz jFhTAk"
+        htmlFor="player"
+      >
+        Activision Player ID Examlpe: (josefbenassi%237491959)
+      </label>
+    </div>
+    <input
+      aria-label="Activision Player ID Examlpe: (josefbenassi%237491959)-aria"
+      aria-required="true"
+      className="sc-bdfBwQ kmKmLh"
+      id="player"
+      label="Activision Player ID Examlpe: (josefbenassi%237491959)"
+      onChange={[Function]}
+      readOnly={false}
+      required={true}
+    />
+  </div>
+  <button
+    className="sc-hKgILt AWien"
+    data-test="primary-button"
+    disabled={false}
+    onClick={[Function]}
+  >
+    Search
+  </button>
+</div>
+`;
