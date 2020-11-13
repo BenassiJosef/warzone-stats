@@ -13,7 +13,12 @@ export default function searchPlayer(dispatch, payload, history) {
   console.log(payload);
   console.log(WARZONE_API);
   axios
-    .get(`${WARZONE_API}/atvi/${payload.playerID}`)
+    .get(`${WARZONE_API}/atvi/${payload.playerID}`, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json; charset=utf-8",
+      },
+    })
     .then(
       // Success
       ({ data, status }) => {
