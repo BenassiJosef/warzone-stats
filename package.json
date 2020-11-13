@@ -51,5 +51,6 @@
   },
   "devDependencies": {
     "jest-styled-components": "^7.0.3"
-  }
+  },
+  "homepage": "https://myusername.github.io/my-app"
 }
