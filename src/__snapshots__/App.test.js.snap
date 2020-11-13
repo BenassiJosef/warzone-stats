@@ -18,15 +18,15 @@ exports[`snapshot renders 1`] = `
         className="sc-gsTCUz jFhTAk"
         htmlFor="player"
       >
-        Activision Player ID Examlpe: (josefbenassi%237491959)
+        Activision Player ID's Examlpe: (josefbenassi%237491959)
       </label>
     </div>
     <input
-      aria-label="Activision Player ID Examlpe: (josefbenassi%237491959)-aria"
+      aria-label="Activision Player ID's Examlpe: (josefbenassi%237491959)-aria"
       aria-required="true"
       className="sc-bdfBwQ kmKmLh"
       id="player"
-      label="Activision Player ID Examlpe: (josefbenassi%237491959)"
+      label="Activision Player ID's Examlpe: (josefbenassi%237491959)"
       onChange={[Function]}
       readOnly={false}
       required={true}
