@@ -26,7 +26,7 @@ export const Search = ({ submitPlayerRequest, history }) => {
     <>
       <Input
         id="player"
-        label="Activision Player ID Examlpe: (josefbenassi%237491959)"
+        label="Activision Player ID's Examlpe: (josefbenassi%237491959)"
         type="text"
         onChange={({ target }) => setPlayerId(target.value)}
       />
