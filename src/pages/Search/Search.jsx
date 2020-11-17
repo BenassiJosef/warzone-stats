@@ -1,40 +1,33 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Search.css";
-import Input from "../../elements/Input/Input";
-import Button from "../../elements/Button/Button";
+import DataTableGrommet from "../../components/Datatable/DataTable";
 import searchPlayer from "../../redux/actions/searchActionCreator";
+import {players} from "../../data/players"
+
 
 export const Search = ({ submitPlayerRequest, history }) => {
-  const searchResp = useSelector(
-    ({ searchReducer }) => searchReducer.searchResponse ?? ""
-  );
-  const dispatch = useDispatch();
-  const [playerID, setPlayerId] = useState("");
+const searchResp = useSelector(
+    ({ searchReducer }) => searchReducer.searchResponse ?? false);
+const dispatch = useDispatch();
+const [player] = useState(players);
 
-  const search = useCallback(() => {
+const search = useCallback(() => {
     searchPlayer(dispatch, {
-      playerID,
+      player,
     });
-  }, [dispatch, playerID]);
+  }, [dispatch, player]);
 
-  useEffect(() => {
-    console.log(searchResp);
-  }, [searchResp]);
-
+    useEffect(() => {
+        search()
+    }, []);
+ 
   return (
     <>
-      <Input
-        id="player"
-        label="Activision Player ID Examlpe: (josefbenassi%237491959)"
-        type="text"
-        onChange={({ target }) => setPlayerId(target.value)}
-      />
-      <Button intent="primary" disabled={false} onClick={search}>
-        Search
-      </Button>
+    {searchResp ? <DataTableGrommet playerData={searchResp}/> : <p>loading</p>}
     </>
   );
 };
 
 export default Search;
+
