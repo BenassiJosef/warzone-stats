@@ -1,6 +1,7 @@
 import axios from "axios";
 import { SEARCH_PLAYER, SEARCH_PLAYER_ERROR } from "./searchActions";
 import { WARZONE_API } from "../../constants";
+import { objectValues } from "../../utils/utils";
 
 /**
  * Dispatches an HTTP request to the IDAM backend for registrating
@@ -26,7 +27,7 @@ export default function searchPlayer(dispatch, payload, history) {
       });
       return dispatch({
         type: SEARCH_PLAYER,
-        payload: { ...values },
+        payload: { ...objectValues(values).next().value },
       });
     })
     .catch((error) => {

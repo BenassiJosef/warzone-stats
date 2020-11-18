@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Search.css";
-import DataTableGrommet from "../../components/Datatable/DataTable";
 import searchPlayer from "../../redux/actions/searchActionCreator";
 import {players} from "../../data/players"
+import DataTable from "../../components/DataTable"
 
 
 export const Search = ({ submitPlayerRequest, history }) => {
@@ -24,7 +24,7 @@ const search = useCallback(() => {
  
   return (
     <>
-    {searchResp ? <DataTableGrommet playerData={searchResp}/> : <p>loading</p>}
+    <DataTable></DataTable>
     </>
   );
 };
