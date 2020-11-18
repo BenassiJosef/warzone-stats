@@ -28,13 +28,6 @@ export default function searchPlayer(dispatch, payload, history) {
         type: SEARCH_PLAYER,
         payload: { ...values },
       });
-
-      //   if (result.status === 200) {
-      //     dispatch({
-      //       type: SEARCH_PLAYER,
-      //       payload: { status: result.status, ...result.data },
-      //     });
-      //   }
     })
     .catch((error) => {
       if (error.response) {
@@ -43,39 +36,5 @@ export default function searchPlayer(dispatch, payload, history) {
           payload: { status: error.response.status, ...error.response.data },
         });
       }
-    }); //   utils
-  //     .getAllPlayers(WARZONE_API, payload, utils.composePlayersArray)
-  //     .then((response) => {
-  //       console.log(response);
-  //     });
-  //   axios
-  //     .get(`${WARZONE_API}/xbl/playbyclover`, {
-  //       headers: {
-  //         "Access-Control-Allow-Origin": "*",
-  //         "Content-Type": "application/json; charset=utf-8",
-  //       },
-  //     })
-  //     .then(
-  //       // Success
-  //       ({ data, status }) => {
-  //         if (status === 200) {
-  //           //   return dispatch({
-  //           //     type: SEARCH_PLAYER,
-  //           //     payload: { status: status, ...data },
-  //           //   });
-  //           dispatch({
-  //             type: SEARCH_PLAYER,
-  //             payload: { status: status, ...data },
-  //           });
-  //         }
-  //       }
-  //     )
-  //     .catch((error) => {
-  //       if (error.response) {
-  //         return dispatch({
-  //           type: SEARCH_PLAYER_ERROR,
-  //           payload: { status: error.response.status, ...error.response.data },
-  //         });
-  //       }
-  //     });
+    });
 }
