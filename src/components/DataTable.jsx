@@ -181,7 +181,6 @@ export default function DataTable({playerData}) {
   const [rowsPerPage, setRowsPerPage] = React.useState(7);
 
   const playersArray = objectValues(playerData).next().value.map(el =>{
-        console.log(el.data.segments[1].stats.kills.displayValue)
     return ({
        name: el.data.platformInfo.platformUserIdentifier,
        kdValue: el.data.segments[1].stats.kdRatio.value,
