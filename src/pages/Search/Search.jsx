@@ -21,10 +21,14 @@ const search = useCallback(() => {
     useEffect(() => {
         search()
     }, []);
+
+ if (Object.keys(searchResp).length === 0 && searchResp.constructor === Object) {
+    return <p>Loading Warzone Data...</p>;
+  }
  
   return (
     <>
-    <DataTable></DataTable>
+    <DataTable playerData={searchResp}></DataTable>
     </>
   );
 };
